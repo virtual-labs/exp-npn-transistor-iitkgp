@@ -1,115 +1,120 @@
-  {
-	  "version": 2.0,
+{
+  "version": 2.0,
   "questions": [
     {
-      "question": "1. What does the term 'Gummel plot' specifically refer to in the context of BJT characterization?",
+      "question": "1. The output characteristic of an n-p-n transistor represent: [IC= Collector current, VCE= potential difference between collector and emitter, IB=Base current, VBB= voltage given to base; VBE= the potential difference between base and emitter]",
       "answers": {
-        "a": "A plot of base-emitter voltage (V_BE) versus collector current (I_C)",
-        "b": "A plot of base current (I_B) versus base-emitter voltage (V_BE)",
-        "c": "A plot of collector current (I_C) versus base current (I_B)",
-        "d": "A plot of base-emitter voltage (V_BE) versus base current (I_B)"
+        "a": "changes in IC as IB and VBB are changed",
+        "b": "changes in IC with changes in VCE(IB=constant)",
+        "c": "changes in IB with changes in VCE",
+        "d": "changes in IC as VBE is changed"
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "2. In a Gummel plot, what does the slope of the base current (I_B) versus base-emitter voltage (V_BE) plot represent?",
+      "question": "2. In a transistor output characteristics commonly used in common emitter configuration, the base current IB, the collector current IC and the collector-emitter voltage VCE have values of the following orders of magnitude in the active region:",
       "answers": {
-        "a": "Saturation current (I_S)",
-        "b": "Current gain (\u03b2)",
-        "c": "Emitter efficiency",
-        "d": "Thermal voltage (V_T)"
+        "a": "IB and IC both are in μA and VCE in volt",
+        "b": "IB is in μA and IC is in mA and VCE in volt",
+        "c": "IB is in mA and IC is in μA and VCE in mV",
+        "d": "IB is in mA and IC is in mA and VCE in mV"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. Let iE, iC and iB represent the emitter current, the collector current and the base current respectively in a transistor. Then",
+      "answers": {
+        "a": "iC is slightly smaller than iE",
+        "b": "iC is slightly greater than iE",
+        "c": "iB is much smaller than iE",
+        "d": "iB is much greater than iE"
+      },
+      "correctAnswer": "a",
+	  "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. The majority charge carries in an NPN transistors are-",
+      "answers": {
+        "a": "Electron",
+        "b": "Holes",
+        "c": "Trivalent atoms",
+        "d": "Pentavalent atoms"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "3. The Gummel plot is commonly used to determine which of the following parameters of a BJT?",
+      "question": "5. In an n-p-n transistor operating in saturated mode, the output voltage VCE is",
       "answers": {
-        "a": "Collector-emitter voltage (V_CE)",
-        "b": "Base-emitter voltage (V_BE)",
-        "c": "Saturation current (I_S)",
-        "d": "Thermal resistance (R_th)"
+        "a": "Greater than 2VBE",
+        "b": "Between 2VEB and VBE",
+        "c": "Less than VBE",
+        "d": "Equal to VBE"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
-    {
-      "question": "4. What is the primary purpose of characterizing a BJT using the Gummel plot method?",
+	{
+      "question": "6. n-p-n transistors are preferred over p-n-p transistors because they have",
       "answers": {
-        "a": "To analyze power dissipation",
-        "b": "To optimize frequency response",
-        "c": "To extract key parameters like current gain and saturation current",
-        "d": "To measure voltage drop across the collector-emitter junction"
+        "a": "high mobility of holes",
+        "b": "equal to mobility of holes",
+        "c": "low mobility of holes",
+        "d": "higher mobility of electrons than the mobility of holes in p-n-p transistors"
       },
-      "correctAnswer": "c",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "5. What does the ideality factor in a BJT refer to?",
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },	
+	
+	
+	{
+      "question": "7. In a common-emitter transistor amplifier circuit β = 100, input resistance R1 = 1 kΩ, output resistance R2 = 10 kΩ. The voltage gain of circuit is:",
       "answers": {
-        "a": "A measure of how closely the BJT follows the ideal exponential relationship",
-        "b": "A measure of collector current efficiency",
-        "c": "A measure of base current leakage",
-        "d": "A measure of temperature dependence"
-      },
-      "correctAnswer": "a",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "6. How does the Gummel plot help in analyzing BJT operation in different regions?",
-      "answers": {
-        "a": "By identifying breakdown voltage",
-        "b": "By showing linear and saturation regions clearly",
-        "c": "By measuring thermal resistance",
-        "d": "By calculating power gain"
+        "a": "100",
+        "b": "1000",
+        "c": "10",
+        "d": "5000"
       },
       "correctAnswer": "b",
-      "difficulty": "intermediate"
+      "difficulty": "beginner"
     },
-    {
-      "question": "7. What does the slope of the collector current (I_C) versus base-emitter voltage (V_BE) plot determine?",
+	{
+	 "question": "8. A good amplifier is one which has ______input resistance and ________output resistance.",
       "answers": {
-        "a": "Emitter efficiency",
-        "b": "Saturation current (I_S)",
-        "c": "Current gain (\u03b2)",
-        "d": "Thermal voltage (V_T)"
-      },
-      "correctAnswer": "b",
-      "difficulty": "advanced"
-    },
-    {
-      "question": "8. In a Gummel plot, what does the term 'early effect' refer to?",
-      "answers": {
-        "a": "Voltage dependence of collector current",
-        "b": "Temperature dependence of base current",
-        "c": "Voltage dependence of base current",
-        "d": "Temperature dependence of collector current"
+        "a": "high, low",
+        "b": "high, high",
+        "c": "low, low",
+        "d": "low, high"
       },
       "correctAnswer": "a",
-      "difficulty": "advanced"
+      "difficulty": "beginner"
     },
-    {
-      "question": "9. How can the Gummel plot aid in optimizing BJT circuit design?",
+	
+	{
+	 "question": "9. Choose the correct relation between the base current (IB), collector current(IC) and emitter current (IE) in a p-n-p transistor.",
       "answers": {
-        "a": "By minimizing thermal resistance",
-        "b": "By maximizing current gain",
-        "c": "By ensuring proper biasing and performance",
-        "d": "By increasing breakdown voltage"
+        "a": "IE = IB + IC",
+        "b": "IE = IB",
+        "c": "IE = IC",
+        "d": "IC = IB + IE"
       },
-      "correctAnswer": "c",
-      "difficulty": "advanced"
+      "correctAnswer": "a",
+      "difficulty": "beginner"
     },
-    {
-      "question": "10. What region of operation is characterized by a Gummel plot where collector current (I_C) remains relatively constant with changes in base-emitter voltage (V_BE)?",
+	
+	{
+	 "question": "10. In a transistor configuration α -parameter is",
       "answers": {
-        "a": "Cut-off",
-        "b": "Active",
-        "c": "Saturation",
-        "d": "Breakdown"
+        "a": "Ic/Ie",
+        "b": "Ie/Ic",
+        "c": "Ic/Ib",
+        "d": "Ib/Ie"
       },
-      "correctAnswer": "c",
-      "difficulty": "advanced"
+      "correctAnswer": "a",
+      "difficulty": "beginner"
     }
   ]
 }

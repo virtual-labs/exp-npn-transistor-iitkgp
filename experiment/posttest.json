@@ -1,116 +1,120 @@
-
-  {
-	  "version": 2.0,
+{
+  "version": 2.0,
   "questions": [
     {
-      "question": "1. What does the Gummel plot method characterize in a BJT?",
+      "question": "1. In a common emitter transistor the current gain β equals to _______, where have their usual meanings.",
       "answers": {
-        "a": "Voltage gain",
-        "b": "Current gain",
-        "c": "Power gain",
-        "d": "Frequency gain"
-      },
-      "correctAnswer": "b",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "2. The Gummel plot is used to analyze the relationship between which of the following parameters?",
-      "answers": {
-        "a": "Base-emitter voltage (V_BE) and collector current (I_C)",
-        "b": "Base current (I_B) and collector current (I_C)",
-        "c": "Emitter current (I_E) and base current (I_B)",
-        "d": "Base-emitter voltage (V_BE) and base current (I_B)"
-      },
-      "correctAnswer": "b",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "3. What is typically plotted on the y-axis in a Gummel plot?",
-      "answers": {
-        "a": "Base current (I_B)",
-        "b": "Collector current (I_C)",
-        "c": "Base-emitter voltage (V_BE)",
-        "d": "Saturation current (I_S)"
-      },
-      "correctAnswer": "b",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "4. In the Gummel plot, the relationship between collector current (I_C) and base-emitter voltage (V_BE) shows what type of relationship?",
-      "answers": {
-        "a": "Exponential",
-        "b": "Linear",
-        "c": "Quadratic",
-        "d": "Logarithmic"
-      },
-      "correctAnswer": "a",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "5. What does the slope of the collector current (I_C) versus base-emitter voltage (V_BE) plot represent?",
-      "answers": {
-        "a": "Saturation current (I_S)",
-        "b": "Current gain (\u03b2)",
-        "c": "Emitter efficiency",
-        "d": "Thermal voltage (V_T)"
-      },
-      "correctAnswer": "a",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "6. How does the Gummel plot help in BJT characterization?",
-      "answers": {
-        "a": "By measuring thermal resistance",
-        "b": "By extracting parameters like saturation current and current gain",
-        "c": "By measuring power dissipation",
-        "d": "By analyzing frequency response"
-      },
-      "correctAnswer": "b",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "7. What parameter of a BJT is directly related to the ideality factor in the Gummel plot?",
-      "answers": {
-        "a": "Saturation current (I_S)",
-        "b": "Base-emitter voltage (V_BE)",
-        "c": "Emitter efficiency",
-        "d": "Thermal voltage (V_T)"
-      },
-      "correctAnswer": "a",
-      "difficulty": "advanced"
-    },
-    {
-      "question": "8. How can you determine the current gain (\u03b2) of a BJT from the Gummel plot?",
-      "answers": {
-        "a": "By calculating the slope of the base current (I_B) versus base-emitter voltage (V_BE) plot",
-        "b": "By calculating the slope of the collector current (I_C) versus base-emitter voltage (V_BE) plot",
-        "c": "By dividing base current (I_B) by collector current (I_C)",
-        "d": "By dividing collector current (I_C) by base current (I_B)"
-      },
-      "correctAnswer": "b",
-      "difficulty": "advanced"
-    },
-    {
-      "question": "9. What does the term 'early effect' refer to in the context of BJTs?",
-      "answers": {
-        "a": "Temperature dependence of collector current",
-        "b": "Voltage dependence of base current",
-        "c": "Voltage dependence of collector current",
-        "d": "Temperature dependence of base current"
+        "a": "Ib/Ic",
+        "b": "Ie/Ic",
+        "c": "Ic/Ib",
+        "d": "Ic/Ie"
       },
       "correctAnswer": "c",
-      "difficulty": "advanced"
+      "difficulty": "beginner"
     },
     {
-      "question": "10. In the Gummel plot, the linear region where the base current (I_B) is proportional to base-emitter voltage (V_BE) is known as the ______ region.",
+      "question": "2. In a transistor, the ______________ is moderately doped and largest in size.",
       "answers": {
-        "a": "Saturation",
-        "b": "Active",
-        "c": "Cut-off",
-        "d": "Breakdown"
+        "a": "emitter",
+        "b": "base",
+        "c": "Junction",
+        "d": "collector"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. In a transistor the _________ is of moderate size and heavily doped.",
+      "answers": {
+        "a": "emitter",
+        "b": "base",
+        "c": "Junction",
+        "d": "collector"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. When the transistor is used in the cut-off or saturation state, it acts as?",
+      "answers": {
+        "a": "An amplifier",
+        "b": "Zener diode",
+        "c": "A switch",
+        "d": "An AND gate"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. When a transistor is used in common emitter configuration, the __________.",
+      "answers": {
+        "a": "output is between the base and the emitter",
+        "b": "input is between the base and the emitter",
+		"c": "input is between the collector and the emitter",
+        "d": "output is between the base and the collector"
+        
       },
       "correctAnswer": "b",
-      "difficulty": "advanced"
+      "difficulty": "beginner"
+    },
+    {
+      "question": "6. In order to use the transistor as an amplifier, it has to operate in the ________ region.",
+      "answers": {
+        "a": "Switched region",
+        "b": "Cutoff region",
+        "c": "Active region",
+        "d": "Saturation region"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "7. For a transistor, β = 100. The value of α is",
+      "answers": {
+        "a": "1.01",
+        "b": "0.99",
+        "c": "100",
+        "d": "0.01"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "8. If α-current gain of a transistor is 0.98. What is the value of β-current gain of the transistor?",
+      "answers": {
+        "a": "0.49",
+        "b": "49",
+        "c": "4.9",
+        "d": "5"
+        
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },    
+	
+	{
+      "question": "9. The emitter-base junction of a transistor is ______ biased while the collector-base junction is _____biased.",
+      "answers": {
+        "a": "reverse,forward",
+        "b": "reverse,reverse",
+        "c": "forward,forward",
+        "d": "forward,reverse"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "10. The emitter of a transistor is ________________ doped.",
+      "answers": {
+        "a": "of moderate size and lightly",
+        "b": "of moderate size and heavily",
+        "c": "very thin and heavily",
+        "d": "very thin and lightly"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
     }
+	
   ]
 }
