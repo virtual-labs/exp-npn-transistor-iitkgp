@@ -1,13 +1,300 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output Characteristics of a NPN Transistor</title>
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
-</body>
-</html>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/adik.css" rel="stylesheet">
+
+    <!-- jQuery and jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- MathJax -->
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Math.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.2.1/math.min.js"></script>
+
+    <!-- jQuery Knob -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
+
+    <!-- CanvasJS -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="./js/PTrainer.js"></script>
+</head>
+<body><!--body tag start-->
+    <div class="container p-3 my-3 text-primary text-center border"><!--First Container under body tag start-->
+        <div class="row"><!--First row under 1st container start-->
+            <div class="col-md-3"><!--First col under 1st row start-->
+                <img class="img-fluid rounded" src="./images/vlabs.png" alt="VLabs logo">
+            </div><!--First col under 1st row end-->
+            <div class="col-md-6"><!--2nd col under 1st row start-->
+                <p class="display-1"> <b> Virtual Labs <br> IIT Kharagpur </b> </p>
+            </div><!--2nd col under 1st row end-->
+            <div class="col-md-3"><!--3rd col under 1st row start-->
+                <img class="img-fluid rounded" src="./images/iitkgp.png" alt="IIT KGP Logo" >
+            </div><!--3rd col under 1st row end-->
+        </div><!--First row under 1st container end-->
+    
+        <hr>
+        <div class="row"><!--2nd row under 1st container start-->
+            <div class="col-md-3"><!--First col under 2nd row start-->
+
+            </div><!--First col under 2nd row end-->
+            <div class="col-md-6"><!--2nd col under 2nd row start-->
+                <p class="h1"> <b>Output Characteristics of a NPN Transistor</b> </p>
+            </div><!--2nd col under 2nd row end-->
+            <div class="col-md-3"><!--3rd col under 2nd row start-->
+
+            </div><!--3rd col under 2nd row end-->
+        </div><!--2nd row under 1st container end-->
+        <hr>
+        <div class="d-flex p-1 text-primary"><!--3rd row under 1st container start-->
+          <div class="p-1" > <p class="h4"><a href="../index.html"> <span class="LN"> <b> Microelectronics and VLSI Engineering Laboratory </b></span> --> </a></p></div>
+          <div class="p-1"> <p class="h4"><a href="./index.html"> <span class="ExpN"> <b> Output Characteristics of a NPN Transistor</b> </span> </a></p></div>
+        </div><!--3rd row under 1st container end-->
+    </div><!--First Container under body tag end-->
+    
+    <div class="container p-3 my-5 text-primary text-center border"><!--2nd Container under body tag start-->
+        <div class="row"><!--First row under 2nd container start-->
+
+            <ul class="nav nav-pills nav-justified">
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">Introduction</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../aim.html">Objective</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../prequiz.html">Pre Quiz</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../theory.html">Theory</a>
+                </li>
+				<li class="nav-item">
+                  <a class="nav-link" href="../procedure.html">Procedure</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="./index.html">Simulation</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../postquiz.html">Post Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../feedback.html">Feedback</a>
+                  </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../references.html">References</a>
+                  </li>
+
+              </ul>
+        </div><!--First row under 2nd container end-->
+    </div><!--2nd Container under body tag end-->
+	
+    <div class="container p-3 my-5 text-left border"><!--3rd Container under body tag start-->
+      <div class="row"><!--First row under 3rd container start-->
+        <div class="col-md-1"></div><!--First col under 3rd container start& end-->
+        <div class="col-md-10"><!--2nd col under 3rd container start-->
+            <p class="text-center bg-success"> <a class="nav-link" data-bs-toggle="tab"  id="instcontrol" style="background-color:#128BD9"  ><span class=" h3 text-dark"> Instructions </span></a>
+              <div id="inst" style="display:block;height:200px;overflow-y:auto;text-align:justify">
+					<ol>
+					
+					
+                      <li>Default Base Current (Ib) values (comma separated, in μA) are set into the input feild, you can set any values between 1 to 5</li>
+					  <li>Default Collector-Emitter Voltage (Vce) is set into the input feild, you can increase upto 20</li>
+					  <li>Default Base-Emitter Voltage (Vbe) is set into the input feild, you can increase upto 1</li>
+					  <li>Click on 'Update Chart' button to get the Output Cheracteristics graph</li><br/>
+					  
+					  
+					<br><br>
+					</ol>
+	
+					
+					
+		   </div>
+            </p> 
+          </div><!--2nd col under 3rd container end-->
+		  
+        <div class="col-md-1"></div><!--3rd col under 3rd container start& end-->
+      </div><!--First row under 3rd container end-->
+    </div><!--3rd Container under body tag end-->
+	
+   <!--simulation start -->
+   <div>
+    <div class="container">
+        
+        <div>
+            <label for="vbeInput">Base-Emitter Voltage (Vbe): </label>
+            <input type="number" id="vbeInput" min="0" max="1" step="0.1" value="0">
+        </div>
+        <div>
+            <label for="vceInput">Collector-Emitter Voltage (Vce): </label>
+            <input type="number" id="vceInput" min="0" max="20" step="0.1" value="5">
+        </div>
+        <div>
+            <label for="ibInput">Base Currents (Ib) in μA (comma-separated): </label>
+            <input type="text" id="ibInput" value="1,2,3,4,5">
+        </div>
+        <button onclick="updateChart()">Update Chart</button>
+        <canvas id="transistorChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let vce = 5;
+        let vbe = 0;
+        let chart;
+
+        function updateChart() {
+            vce = parseFloat(document.getElementById('vceInput').value);
+            vbe = parseFloat(document.getElementById('vbeInput').value);
+            const ibInput = document.getElementById('ibInput').value;
+            const ibValues = ibInput.split(',').map(val => parseFloat(val.trim()));
+            updateChartData(ibValues);
+        }
+
+        function updateChartData(ibValues) {
+            chart.data.datasets = ibValues.map(ib => {
+                const ibLabel = `Ib = ${ib}μA`;
+                return {
+                    label: ibLabel,
+                    data: calculateIcValues(vce, vbe, ibLabel),
+                    borderColor: getRandomColor(),
+                    fill: false
+                };
+            });
+            chart.update();
+        }
+
+        function calculateIcValues(vce, vbe, ibLabel) {
+            const ibValues = {
+                'Ib = 1μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4],
+				'Ib = 1.1μA': [0, 0.2, 0.4, 0.6, 0.9, 1.3, 1.7, 2.1, 2.3, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5],
+				'Ib = 1.2μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6],
+				'Ib = 1.3μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 3.8, 4, 4, 4, 4, 4, 4, 4, 4],
+				'Ib = 1.4μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.4, 5.6, 5.6, 5.6, 5.6],
+				'Ib = 1.5μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6, 6.2, 6.4, 6.6],
+				'Ib = 1.6μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2],
+				'Ib = 1.7μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2],
+				'Ib = 1.8μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2],
+				'Ib = 1.9μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2],
+
+
+				'Ib = 2μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+				'Ib = 2.1μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
+				'Ib = 2.2μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
+				'Ib = 2.3μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
+				'Ib = 2.4μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
+				'Ib = 2.5μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
+				'Ib = 2.6μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
+				'Ib = 2.7μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
+				'Ib = 2.8μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
+				'Ib = 2.9μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
+
+					
+							
+				'Ib = 3μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6],
+				'Ib = 3.1μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
+				'Ib = 3.2μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
+				'Ib = 3.3μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
+				'Ib = 3.4μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
+				'Ib = 3.5μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
+				'Ib = 3.6μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
+				'Ib = 3.7μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
+				'Ib = 3.8μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
+				'Ib = 3.9μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
+
+											
+				'Ib = 4μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.2, 5.4, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6],
+				'Ib = 4.1μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
+				'Ib = 4.2μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
+				'Ib = 4.3μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
+				'Ib = 4.4μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
+				'Ib = 4.5μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
+				'Ib = 4.6μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
+				'Ib = 4.7μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
+				'Ib = 4.8μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
+				'Ib = 4.9μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
+
+											
+				'Ib = 5μA': [0, 1, 2, 3, 4, 5, 6, 6.5, 7, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2]
+
+            };
+
+            return ibValues[ibLabel].map(ic => ic * (20 - vce - vbe) / 20); // Adjusting Ic based on Vce and Vbe
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('transistorChart').getContext('2d');
+
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({length: 21}, (_, i) => (i * 0.1) + 'mA'), // Ic from 0 to 2mA
+                    datasets: []
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Collector Current Ic (mA)'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Base Current Ib (μA)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            updateChart(); // Initial chart update
+        });
+    </script>
+   </div>
+   <!--simulation end -->
+   
+
+    <div class="container p-3 my-5 text-primary text-center border"><!--Last and fifth container under body tag start-->
+      <div class="row">
+        <footer>
+          <div class="row ce">
+            <div class="col-sm-12">
+              <p class="h5"><i> Copyright ©2022 <a href="http://vlabs.iitkgp.ac.in/vlt/">Virtual Labs IIT Kharagpur</a> </i><br><br>
+              <a href="../../license/index.html" target="_blank"> Licensing Terms </a>
+            </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+  </div><!--Last and fifth container under body tag end-->
+
+  
+	 
+</body><!--body tag end-->
+</html><!--html tag end-->
