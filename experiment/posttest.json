@@ -2,38 +2,119 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "1. In a common emitter transistor the current gain β equals to _______, where have their usual meanings.",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Ib/Ic",
+        "b": "Ie/Ic",
+        "c": "Ic/Ib",
+        "d": "Ic/Ie"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. In a transistor, the ______________ is moderately doped and largest in size.",
+      "answers": {
+        "a": "emitter",
+        "b": "base",
+        "c": "Junction",
+        "d": "collector"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. In a transistor the _________ is of moderate size and heavily doped.",
+      "answers": {
+        "a": "emitter",
+        "b": "base",
+        "c": "Junction",
+        "d": "collector"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "4. When the transistor is used in the cut-off or saturation state, it acts as?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "An amplifier",
+        "b": "Zener diode",
+        "c": "A switch",
+        "d": "An AND gate"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
+    },
+    {
+      "question": "5. When a transistor is used in common emitter configuration, the __________.",
+      "answers": {
+        "a": "output is between the base and the emitter",
+        "b": "input is between the base and the emitter",
+		"c": "input is between the collector and the emitter",
+        "d": "output is between the base and the collector"
+        
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "6. In order to use the transistor as an amplifier, it has to operate in the ________ region.",
+      "answers": {
+        "a": "Switched region",
+        "b": "Cutoff region",
+        "c": "Active region",
+        "d": "Saturation region"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "7. For a transistor, β = 100. The value of α is",
+      "answers": {
+        "a": "1.01",
+        "b": "0.99",
+        "c": "100",
+        "d": "0.01"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "8. If α-current gain of a transistor is 0.98. What is the value of β-current gain of the transistor?",
+      "answers": {
+        "a": "0.49",
+        "b": "49",
+        "c": "4.9",
+        "d": "5"
+        
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },    
+	
+	{
+      "question": "9. The emitter-base junction of a transistor is ______ biased while the collector-base junction is _____biased.",
+      "answers": {
+        "a": "reverse,forward",
+        "b": "reverse,reverse",
+        "c": "forward,forward",
+        "d": "forward,reverse"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "10. The emitter of a transistor is ________________ doped.",
+      "answers": {
+        "a": "of moderate size and lightly",
+        "b": "of moderate size and heavily",
+        "c": "very thin and heavily",
+        "d": "very thin and lightly"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
     }
+	
   ]
 }
