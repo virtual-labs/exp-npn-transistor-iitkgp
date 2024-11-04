@@ -17,14 +17,14 @@
 
 **Configure Measurement Settings:**  
   
-Base Current ($$I_B$$) Settings:  
+Base Current (I<sub>B</sub>) Settings:  
 *   Press the SOURCE SET key.
 *   Select the source for the base current (SMU1, for example).
 *   Set the Start Value of the base current (e.g., 10 µA).
 *   Set the Stop Value of the base current (e.g., 100 µA).
 *   Set the Step Value of the base current (e.g., 10 µA).
 
-Collector-Emitter Voltage ($$V_{CE}$$) Settings: 
+Collector-Emitter Voltage (V<sub>CE</sub>) Settings: 
 *   Press the SOURCE SET key again.
 *   Select the source for the collector-emitter voltage (SMU2, for example).
 *   Set the Start Value of the collector-emitter voltage (e.g., 0 V).
