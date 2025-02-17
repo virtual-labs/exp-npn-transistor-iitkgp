@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output Characteristics of a NPN Transistor</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .instructions {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .input-group input {
+            width: 200px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .input-group2 input {
+            width: 300px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .controls button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+
+        #plot {
+            width: 100%;
+            height: 500px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .info {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Instructions Section -->
+        <div class="container p-3 my-5 text-left border">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <p class="text-center bg-success">
+                        <a class="nav-link" data-bs-toggle="tab" id="instcontrol" style="background-color:#128BD9">
+                            <span class="h3 text-dark">Instructions</span>
+                        </a>
+                        <div id="inst" style="display:block;height:200px;overflow-y:auto;text-align:justify">
+                            <ol>
+                                <li>Default Base Current (Ib) values (comma separated, in μA) are set into the input field, you can set any +ve value.</li>
+                                <li>Default Collector-Emitter Voltage (Vce) is set into the input field, you can increase as required.</li>
+                                <li>Default Base-Emitter Voltage (Vbe) is set into the input field, you can increase as required.</li>
+                                <li>Default Step Size (V)) is set into the input field, you can increase as required.</li>
+                                <li>Click on 'Simulate' button to get the Output Characteristics graph.</li>
+                            </ol>
+                        </div>
+                    </p>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="controls">
+            <div class="input-group">
+                <label for="startValue">Base-Emitter Voltage (Vbe) : &ensp;&ensp;&ensp;</label>
+                <input type="number" id="startValue" value="0.0" step="0.1" style="margin-left: 10px;">
+            </div>
+            <div class="input-group">
+                <label for="stopValue">Collector-Emitter Voltage (Vce) : </label>
+                <input type="number" id="stopValue" value="5.0" step="0.1" style="margin-left: 10px;">
+            </div>
+            <div class="input-group">
+                <label for="stepSize">Step Size (V) : &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</label>
+                <input type="number" id="stepSize" value="0.1" step="0.01" style="margin-left: 10px;">
+            </div>
+            <div class="input-group">
+                <label for="baseCurrents">Base Currents (Ib) in μA : &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</label>
+                <input type="text" id="baseCurrents" value="1.36, 2, 3,4,5,6" style="margin-left: 10px;">
+            </div>
+            <!-- Wrapper for button to center it at the bottom -->
+            <div class="button-wrapper" style="width: 100%; display: flex; justify-content: center; margin-top: 20px;">
+                <button onclick="simulate()">Simulate</button>
+            </div>
+        </div>
+        
+
+        <!-- Plot Section -->
+        <div id="plot"></div>
+
+        <!-- Info Section -->
+        <div class="info">
+            <p>Total Points: <span id="totalPoints">51</span></p>
+        </div>
+    </div>
+
+    <script>
+        function generateColors(num) {
+            const colors = [];
+            for (let i = 0; i < num; i++) {
+                const hue = (i * 360 / num) % 360;
+                colors.push(`hsl(${hue}, 100%, 50%)`);
+            }
+            return colors;
+        }
+
+        function simulate() {
+            const startValue = parseFloat(document.getElementById('startValue').value);
+            const stopValue = parseFloat(document.getElementById('stopValue').value);
+            const stepSize = parseFloat(document.getElementById('stepSize').value);
+            const baseCurrentsInput = document.getElementById('baseCurrents').value;
+            const baseCurrents = baseCurrentsInput.split(',').map(val => parseFloat(val.trim()));
+
+            if (isNaN(startValue) || isNaN(stopValue) || isNaN(stepSize) || stepSize <= 0) {
+                alert("Please enter valid values for Starting Value, Stopping Value, and Step Size.");
+                return;
+            }
+            if (baseCurrents.some(isNaN)) {
+                alert("Please enter valid comma-separated values for Base Currents (Ib).");
+                return;
+            }
+
+            const colors = generateColors(baseCurrents.length);
+            const totalPoints = Math.ceil((stopValue - startValue) / stepSize) + 1;
+            document.getElementById('totalPoints').textContent = totalPoints;
+
+            let traces = [];
+
+            baseCurrents.forEach((ib, index) => {
+                let va = [], ia = [];
+
+                for (let v = startValue; v <= stopValue; v += stepSize) {
+                    let vc = v;
+                    let ic = ib * 0.001 * (1 - Math.exp(-vc / 0.7));
+                    va.push(vc);
+                    ia.push(ic);
+                }
+
+                traces.push({
+                    x: va,
+                    y: ia,
+                    mode: 'lines',
+                    name: `Ib = ${ib} μA`,
+                    line: { color: colors[index] }
+                });
+            });
+
+            const layout = {
+                
+                xaxis: { title: 'Collector Voltage (Vc)', range: [0, stopValue] },
+                yaxis: { title: 'Collector Current (mA)', range: [0, Math.max(...traces.map(t => Math.max(...t.y))) * 1.1] },
+                showlegend: true,
+                hovermode: 'closest'
+            };
+
+            Plotly.newPlot('plot', traces, layout);
+        }
+
+        simulate();
+    </script>
+<script src="../assets/js/iframeResize.js"></script>
+        
+        </body>
+</html>

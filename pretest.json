@@ -1,0 +1,120 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. The output characteristic of an n-p-n transistor represent: [IC= Collector current, VCE= potential difference between collector and emitter, IB=Base current, VBB= voltage given to base; VBE= the potential difference between base and emitter]",
+      "answers": {
+        "a": "changes in IC as IB and VBB are changed",
+        "b": "changes in IC with changes in VCE(IB=constant)",
+        "c": "changes in IB with changes in VCE",
+        "d": "changes in IC as VBE is changed"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. In a transistor output characteristics commonly used in common emitter configuration, the base current IB, the collector current IC and the collector-emitter voltage VCE have values of the following orders of magnitude in the active region:",
+      "answers": {
+        "a": "IB and IC both are in μA and VCE in volt",
+        "b": "IB is in μA and IC is in mA and VCE in volt",
+        "c": "IB is in mA and IC is in μA and VCE in mV",
+        "d": "IB is in mA and IC is in mA and VCE in mV"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. Let iE, iC and iB represent the emitter current, the collector current and the base current respectively in a transistor. Then",
+      "answers": {
+        "a": "iC is slightly smaller than iE",
+        "b": "iC is slightly greater than iE",
+        "c": "iB is much smaller than iE",
+        "d": "iB is much greater than iE"
+      },
+      "correctAnswer": "a",
+	  "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. The majority charge carries in an NPN transistors are-",
+      "answers": {
+        "a": "Electron",
+        "b": "Holes",
+        "c": "Trivalent atoms",
+        "d": "Pentavalent atoms"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. In an n-p-n transistor operating in saturated mode, the output voltage VCE is",
+      "answers": {
+        "a": "Greater than 2VBE",
+        "b": "Between 2VEB and VBE",
+        "c": "Less than VBE",
+        "d": "Equal to VBE"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+	{
+      "question": "6. n-p-n transistors are preferred over p-n-p transistors because they have",
+      "answers": {
+        "a": "high mobility of holes",
+        "b": "equal to mobility of holes",
+        "c": "low mobility of holes",
+        "d": "higher mobility of electrons than the mobility of holes in p-n-p transistors"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },	
+	
+	
+	{
+      "question": "7. In a common-emitter transistor amplifier circuit β = 100, input resistance R1 = 1 kΩ, output resistance R2 = 10 kΩ. The voltage gain of circuit is:",
+      "answers": {
+        "a": "100",
+        "b": "1000",
+        "c": "10",
+        "d": "5000"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+	{
+	 "question": "8. A good amplifier is one which has ______input resistance and ________output resistance.",
+      "answers": {
+        "a": "high, low",
+        "b": "high, high",
+        "c": "low, low",
+        "d": "low, high"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+	
+	{
+	 "question": "9. Choose the correct relation between the base current (IB), collector current(IC) and emitter current (IE) in a p-n-p transistor.",
+      "answers": {
+        "a": "IE = IB + IC",
+        "b": "IE = IB",
+        "c": "IE = IC",
+        "d": "IC = IB + IE"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+	
+	{
+	 "question": "10. In a transistor configuration α -parameter is",
+      "answers": {
+        "a": "Ic/Ie",
+        "b": "Ie/Ic",
+        "c": "Ic/Ib",
+        "d": "Ib/Ie"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+  ]
+}
