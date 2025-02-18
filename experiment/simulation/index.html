@@ -9,207 +9,223 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="../css/adik.css" rel="stylesheet">
-
-    <!-- jQuery and jQuery UI -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- MathJax -->
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-    <!-- Math.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.2.1/math.min.js"></script>
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    <!-- jQuery Knob -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
+        .instructions {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
 
-    <!-- CanvasJS -->
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-   
+        .input-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .input-group input {
+            width: 200px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .input-group2 input {
+            width: 300px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .controls button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+
+        #plot {
+            width: 100%;
+            height: 500px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .info {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
 </head>
-<body><!--body tag start-->
-  
-      <div class="container p-3 my-5 text-left border"><!--3rd Container under body tag start-->
-      <div class="row"><!--First row under 3rd container start-->
-        <div class="col-md-1"></div><!--First col under 3rd container start& end-->
-        <div class="col-md-10"><!--2nd col under 3rd container start-->
-            <p class="text-center bg-success"> <a class="nav-link" data-bs-toggle="tab"  id="instcontrol" style="background-color:#128BD9"  ><span class=" h3 text-dark"> Instructions </span></a>
-              <div id="inst" style="display:block;height:200px;overflow-y:auto;text-align:justify">
-					<ol>
-					
-					
-                      <li>Default Base Current (Ib) values (comma separated, in μA) are set into the input feild, you can set any values between 1 to 5</li>
-					  <li>Default Collector-Emitter Voltage (Vce) is set into the input feild, you can increase upto 20</li>
-					  <li>Default Base-Emitter Voltage (Vbe) is set into the input feild, you can increase upto 1</li>
-					  <li>Click on 'Update Chart' button to get the Output Cheracteristics graph</li><br/>
-					  
-					  
-					<br><br>
-					</ol>
-	
-					
-					
-		   </div>
-            </p> 
-          </div><!--2nd col under 3rd container end-->
-		  
-        <div class="col-md-1"></div><!--3rd col under 3rd container start& end-->
-      </div><!--First row under 3rd container end-->
-    </div><!--3rd Container under body tag end-->
-	
-   <!--simulation start -->
-   <div>
+<body>
     <div class="container">
+        <!-- Instructions Section -->
+        <div class="container p-3 my-5 text-left border">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <p class="text-center bg-success">
+                        <a class="nav-link" data-bs-toggle="tab" id="instcontrol" style="background-color:#128BD9">
+                            <span class="h3 text-dark">Instructions</span>
+                        </a>
+                        <div id="inst" style="display:block;height:200px;overflow-y:auto;text-align:justify">
+                            <ol>
+                                <li>Default Base Current (Ib) values (comma separated, in μA) are set into the input field, you can set any +ve value.</li>
+                                <li>Default Collector-Emitter Voltage (Vce) is set into the input field, you can increase as required.</li>
+                                <li>Default Base-Emitter Voltage (Vbe) is set into the input field, you can increase as required.</li>
+                                <li>Default Step Size (V)) is set into the input field, you can increase as required.</li>
+                                <li>Click on 'Simulate' button to get the Output Characteristics graph.</li>
+                            </ol>
+                        </div>
+                    </p>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="controls">
+            <div class="input-group">
+                <label for="startValue">Base-Emitter Voltage (Vbe) : &ensp;&ensp;&ensp;</label>
+                <input type="number" id="startValue" value="0.0" step="0.1" style="margin-left: 10px;">
+            </div>
+            <div class="input-group">
+                <label for="stopValue">Collector-Emitter Voltage (Vce) : </label>
+                <input type="number" id="stopValue" value="5.0" step="0.1" style="margin-left: 10px;">
+            </div>
+            <div class="input-group">
+                <label for="stepSize">Step Size (V) : &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</label>
+                <input type="number" id="stepSize" value="0.1" step="0.01" style="margin-left: 10px;">
+            </div>
+            <div class="input-group">
+                <label for="baseCurrents">Base Currents (Ib) in μA : &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</label>
+                <input type="text" id="baseCurrents" value="1.36, 2, 3,4,5,6" style="margin-left: 10px;">
+            </div>
+            <!-- Wrapper for button to center it at the bottom -->
+            <div class="button-wrapper" style="width: 100%; display: flex; justify-content: center; margin-top: 20px;">
+                <button onclick="simulate()">Simulate</button>
+            </div>
+        </div>
         
-        <div>
-            <label for="vbeInput">Base-Emitter Voltage (Vbe): </label>
-            <input type="number" id="vbeInput" min="0" max="1" step="0.1" value="0">
+
+        <!-- Plot Section -->
+        <div id="plot"></div>
+
+        <!-- Info Section -->
+        <div class="info">
+            <p>Total Points: <span id="totalPoints">51</span></p>
         </div>
-        <div>
-            <label for="vceInput">Collector-Emitter Voltage (Vce): </label>
-            <input type="number" id="vceInput" min="0" max="20" step="0.1" value="5">
-        </div>
-        <div>
-            <label for="ibInput">Base Currents (Ib) in μA (comma-separated): </label>
-            <input type="text" id="ibInput" value="1,2,3,4,5">
-        </div>
-        <button onclick="updateChart()">Update Chart</button>
-        <canvas id="transistorChart"></canvas>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
-        let vce = 5;
-        let vbe = 0;
-        let chart;
-
-        function updateChart() {
-            vce = parseFloat(document.getElementById('vceInput').value);
-            vbe = parseFloat(document.getElementById('vbeInput').value);
-            const ibInput = document.getElementById('ibInput').value;
-            const ibValues = ibInput.split(',').map(val => parseFloat(val.trim()));
-            updateChartData(ibValues);
+        function generateColors(num) {
+            const colors = [];
+            for (let i = 0; i < num; i++) {
+                const hue = (i * 360 / num) % 360;
+                colors.push(`hsl(${hue}, 100%, 50%)`);
+            }
+            return colors;
         }
 
-        function updateChartData(ibValues) {
-            chart.data.datasets = ibValues.map(ib => {
-                const ibLabel = `Ib = ${ib}μA`;
-                return {
-                    label: ibLabel,
-                    data: calculateIcValues(vce, vbe, ibLabel),
-                    borderColor: getRandomColor(),
-                    fill: false
-                };
+        function simulate() {
+            const startValue = parseFloat(document.getElementById('startValue').value);
+            const stopValue = parseFloat(document.getElementById('stopValue').value);
+            const stepSize = parseFloat(document.getElementById('stepSize').value);
+            const baseCurrentsInput = document.getElementById('baseCurrents').value;
+            const baseCurrents = baseCurrentsInput.split(',').map(val => parseFloat(val.trim()));
+
+            if (isNaN(startValue) || isNaN(stopValue) || isNaN(stepSize) || stepSize <= 0) {
+                alert("Please enter valid values for Starting Value, Stopping Value, and Step Size.");
+                return;
+            }
+            if (baseCurrents.some(isNaN)) {
+                alert("Please enter valid comma-separated values for Base Currents (Ib).");
+                return;
+            }
+
+            const colors = generateColors(baseCurrents.length);
+            const totalPoints = Math.ceil((stopValue - startValue) / stepSize) + 1;
+            document.getElementById('totalPoints').textContent = totalPoints;
+
+            let traces = [];
+
+            baseCurrents.forEach((ib, index) => {
+                let va = [], ia = [];
+
+                for (let v = startValue; v <= stopValue; v += stepSize) {
+                    let vc = v;
+                    let ic = ib * 0.001 * (1 - Math.exp(-vc / 0.7));
+                    va.push(vc);
+                    ia.push(ic);
+                }
+
+                traces.push({
+                    x: va,
+                    y: ia,
+                    mode: 'lines',
+                    name: `Ib = ${ib} μA`,
+                    line: { color: colors[index] }
+                });
             });
-            chart.update();
-        }
 
-        function calculateIcValues(vce, vbe, ibLabel) {
-            const ibValues = {
-                'Ib = 1μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4, 2.4],
-				'Ib = 1.1μA': [0, 0.2, 0.4, 0.6, 0.9, 1.3, 1.7, 2.1, 2.3, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5],
-				'Ib = 1.2μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6],
-				'Ib = 1.3μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 3.8, 4, 4, 4, 4, 4, 4, 4, 4],
-				'Ib = 1.4μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.4, 5.6, 5.6, 5.6, 5.6],
-				'Ib = 1.5μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6, 6.2, 6.4, 6.6],
-				'Ib = 1.6μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2],
-				'Ib = 1.7μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2],
-				'Ib = 1.8μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2],
-				'Ib = 1.9μA': [0, 0.2, 0.4, 0.8, 1.2, 1.6, 2, 2.2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2],
-
-
-				'Ib = 2μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-				'Ib = 2.1μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
-				'Ib = 2.2μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
-				'Ib = 2.3μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
-				'Ib = 2.4μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
-				'Ib = 2.5μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
-				'Ib = 2.6μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
-				'Ib = 2.7μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
-				'Ib = 2.8μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
-				'Ib = 2.9μA': [0, 0.4, 0.8, 1.4, 2, 2.6, 3.2, 3.6, 3.8, 4.1, 4.4, 4.7, 5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1, 7.4],
-
-					
-							
-				'Ib = 3μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6, 4.6],
-				'Ib = 3.1μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
-				'Ib = 3.2μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
-				'Ib = 3.3μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
-				'Ib = 3.4μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
-				'Ib = 3.5μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
-				'Ib = 3.6μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
-				'Ib = 3.7μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
-				'Ib = 3.8μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
-				'Ib = 3.9μA': [0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4, 4.4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7],
-
-											
-				'Ib = 4μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.2, 5.4, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6, 5.6],
-				'Ib = 4.1μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
-				'Ib = 4.2μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
-				'Ib = 4.3μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
-				'Ib = 4.4μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
-				'Ib = 4.5μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
-				'Ib = 4.6μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
-				'Ib = 4.7μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
-				'Ib = 4.8μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
-				'Ib = 4.9μA': [0, 0.8, 1.6, 2.4, 3.2, 4, 4.8, 5.6, 6.4, 7.2, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6],
-
-											
-				'Ib = 5μA': [0, 1, 2, 3, 4, 5, 6, 6.5, 7, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.2]
-
+            const layout = {
+                
+                xaxis: { title: 'Collector Voltage (Vc)', range: [0, stopValue] },
+                yaxis: { title: 'Collector Current (mA)', range: [0, Math.max(...traces.map(t => Math.max(...t.y))) * 1.1] },
+                showlegend: true,
+                hovermode: 'closest'
             };
 
-            return ibValues[ibLabel].map(ic => ic * (20 - vce - vbe) / 20); // Adjusting Ic based on Vce and Vbe
+            Plotly.newPlot('plot', traces, layout);
         }
 
-        function getRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const ctx = document.getElementById('transistorChart').getContext('2d');
-
-            chart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: Array.from({length: 21}, (_, i) => (i * 0.1) + 'mA'), // Ic from 0 to 2mA
-                    datasets: []
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Collector Current Ic (mA)'
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Base Current Ib (μA)'
-                            }
-                        }
-                    }
-                }
-            });
-
-            updateChart(); // Initial chart update
-        });
+        simulate();
     </script>
-   </div>
-   <!--simulation end -->
-
-</body><!--body tag end-->
-</html><!--html tag end-->
+</body>
+</html>
